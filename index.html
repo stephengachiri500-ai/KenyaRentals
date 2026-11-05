@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KenyaRentals | Find it. Verify it. Rent it.</title>
+<meta name="description" content="Find verified cars, homes, hotels, BnBs and services across Kenya.">
+<style>
+:root{--gold:#d4af37;--black:#090909;--dark:#151515;--muted:#aaa}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:var(--black);color:#fff;line-height:1.6}
+header{padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:#050505;border-bottom:1px solid #292929;position:sticky;top:0;z-index:10}
+.logo{font-size:25px;font-weight:900;color:var(--gold)}
+.logo span{color:white}
+nav a{color:white;text-decoration:none;margin-left:20px;font-size:14px}
+nav a:hover{color:var(--gold)}
+.hero{min-height:440px;padding:90px 7%;display:flex;align-items:center;background:linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.3)),url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85') center/cover}
+.hero-content{max-width:650px}
+.hero h1{font-size:clamp(38px,6vw,65px);line-height:1.1;margin-bottom:20px}
+.gold{color:var(--gold)}
+.hero p{color:#ddd;font-size:18px;margin-bottom:25px}
+.btn{display:inline-block;padding:13px 22px;background:var(--gold);color:#090909;text-decoration:none;font-weight:bold;border-radius:4px}
+.btn.outline{background:transparent;color:var(--gold);border:1px solid var(--gold);margin-left:8px}
+section{padding:65px 6%}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{font-size:32px;margin-bottom:8px}
+.section-title p{color:var(--muted)}
+.search{max-width:700px;margin:0 auto 35px;display:flex;gap:10px}
+.search input{flex:1;min-width:0;padding:14px;border:1px solid #444;background:#171717;color:white;border-radius:4px}
+.search button{padding:14px 22px;background:var(--gold);border:0;font-weight:bold;border-radius:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.card{background:var(--dark);border:1px solid #292929;border-radius:8px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.card img{width:100%;height:180px;object-fit:cover;display:block}
+.card-content{padding:18px}
+.card h3{color:var(--gold);font-size:20px;margin-bottom:7px}
+.card p{color:#bbb;font-size:14px;margin-bottom:14px}
+.card a{color:var(--gold);text-decoration:none;font-weight:bold}
+.about{background:#121212;text-align:center}
+.about p{max-width:750px;margin:15px auto;color:#ccc}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:30px}
+.step{padding:24px;background:#1b1b1b;border-radius:7px;border-bottom:2px solid var(--gold)}
+.step h3{color:var(--gold);margin-bottom:8px}
+.cta{text-align:center;background:linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1400&q=85') center/cover}
+.cta h2{font-size:32px;margin-bottom:12px}
+footer{padding:30px 6%;background:#050505;text-align:center;color:#999}
+footer strong{color:var(--gold)}
+footer a{color:var(--gold);text-decoration:none}
+@media(max-width:650px){
+header{flex-direction:column;gap:10px}
+nav a{margin:0 7px;font-size:12px}
+.hero{padding:75px 6%;min-height:390px}
+.search{flex-direction:column}
+.search button{width:100%}
+section{padding:48px 5%}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">KENYA<span>RENTALS</span></div>
+<nav>
+<a href="#home">Home</a>
+<a href="#categories">Explore</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Find it. <span class="gold">Verify it.</span> Rent it.</h1>
+<p>Discover cars, homes, accommodation and trusted services across Kenya — all in one place.</p>
+<a class="btn" href="#categories">Explore Rentals</a>
+<a class="btn outline" href="https://wa.me/254705681096?text=Hello%20KenyaRentals%2C%20I%20want%20to%20advertise" target="_blank">Advertise With Us</a>
+</div>
+</section>
+
+<section id="categories">
+<div class="section-title">
+<h2>Explore <span class="gold">KenyaRentals</span></h2>
+<p>Find the rental or service you need.</p>
+</div>
+
+<div class="search">
+<input id="searchInput" type="search" placeholder="Search cars, houses, hotels, services...">
+<button onclick="searchCards()">Search</button>
+</div>
+
+<div class="grid" id="listingGrid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" alt="Car rental">
+<div class="card-content"><h3>Cars for Rent</h3><p>Find vehicles for personal and business travel.</p><a href="https://wa.me/254705681096?text=I%20am%20looking%20for%20a%20car%20rental">Enquire on WhatsApp →</a></div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="House rental">
+<div class="card-content"><h3>Houses & Apartments</h3><p>Explore homes and apartments available for rent.</p><a href="https://wa.me/254705681096?text=I%20am%20looking%20for%20a%20house">Enquire on WhatsApp →</a></div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" alt="Hotel">
+<div class="card-content"><h3>Hotels</h3><p>Discover places to stay across Kenya.</p><a href="https://wa.me/254705681096?text=I%20am%20looking%20for%20a%20hotel">Enquire on WhatsApp →</a></div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" alt="BnB">
+<div class="card-content"><h3>BnBs & Holiday Stays</h3><p>Find comfortable short-stay accommodation.</p><a href="https://wa.me/254705681096?text=I%20am%20looking%20for%20a%20BnB">Enquire on WhatsApp →</a></div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Real estate">
+<div class="card-content"><h3>Real Estate</h3><p>Explore property and real estate opportunities.</p><a href="https://wa.me/254705681096?text=I%20am%20interested%20in%20real%20estate">Enquire on WhatsApp →</a></div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80" alt="Cleaning service">
+<div class="card-content"><h3>Cleaning Services</h3><p>Connect with cleaning service providers.</p><a href="https://wa.me/254705681096?text=I%20need%20cleaning%20services">Enquire on WhatsApp →</a></div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=80" alt="Security services">
+<div class="card-content"><h3>Security Services</h3><p>Find security service providers for your needs.</p><a href="https://wa.me/254705681096?text=I%20need%20security%20services">Enquire on WhatsApp →</a></div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=80" alt="Kenya safari">
+<div class="card-content"><h3>Tour Guides</h3><p>Discover guides and experiences across Kenya's counties.</p><a href="https://wa.me/254705681096?text=I%20am%20looking%20for%20a%20tour%20guide">Enquire on WhatsApp →</a></div>
+</div>
+
+</div>
+<p style="text-align:center;color:#999;margin-top:22px;font-size:13px">Photos are illustrative. Always confirm listing details and verification before making payment.</p>
+</section>
+
+<section class="about" id="about">
+<div class="section-title"><h2>About <span class="gold">KenyaRentals</span></h2></div>
+<p>KenyaRentals is a rental and services marketplace designed to connect people looking for rentals with individuals and businesses offering them.</p>
+<p>Our vision is to make finding rentals and useful services easier across Kenya and, in the future, internationally.</p>
+<div class="steps">
+<div class="step"><h3>01. Search</h3><p>Explore available rental categories and services.</p></div>
+<div class="step"><h3>02. Verify</h3><p>Confirm the advertiser, property or service details before paying.</p></div>
+<div class="step"><h3>03. Connect</h3><p>Contact the advertiser directly to discuss the rental.</p></div>
+</div>
+</section>
+
+<section class="cta" id="contact">
+<h2>Have something to <span class="gold">Rent Out?</span></h2>
+<p style="color:#ddd;margin-bottom:24px">Advertise your property, vehicle or service on KenyaRentals.</p>
+<a class="btn" href="https://wa.me/254705681096?text=Hello%20KenyaRentals%2C%20I%20want%20to%20advertise" target="_blank">Advertise on WhatsApp</a>
+</section>
+</main>
+
+<footer>
+<p><strong>KENYARENTALS</strong> — Find it. Verify it. Rent it.</p>
+<p style="margin-top:8px">Contact: <a href="https://wa.me/254705681096">0705 681 096</a></p>
+<p style="margin-top:8px;font-size:12px">© 2026 KenyaRentals. All rights reserved.</p>
+</footer>
+
+<script>
+function searchCards(){
+ const term=document.getElementById('searchInput').value.toLowerCase().trim();
+ document.querySelectorAll('#listingGrid .card').forEach(card=>{
+  card.style.display=card.innerText.toLowerCase().includes(term)?'':'none';
+ });
+}
+document.getElementById('searchInput').addEventListener('keydown',function(e){
+ if(e.key==='Enter')searchCards();
+});
+</script>
+
+</body>
+</html>
