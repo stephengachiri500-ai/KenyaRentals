@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KenyaRentals | Find it. Verify it. Rent it.</title>
+<meta name="description" content="Find verified rental properties, cars, hotels and services across Kenya.">
+<style>
+:root{--gold:#d4af37;--black:#090909;--dark:#171717;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f6f6f6;color:#222}
+header{background:var(--black);color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:25px;font-weight:bold;color:var(--gold)}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:var(--gold)}
+.hero{min-height:440px;background:linear-gradient(#0009,#0009),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600') center/cover;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;padding:35px 15px}
+.hero h1{font-size:clamp(32px,6vw,55px);margin-bottom:15px}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:18px;margin-bottom:25px}
+.search{background:white;padding:10px;border-radius:8px;display:flex;gap:8px;max-width:700px;width:100%;flex-wrap:wrap}
+.search input,.search select{padding:13px;border:1px solid #ddd;flex:1;min-width:130px}
+button,.btn{background:var(--gold);border:0;padding:13px 20px;font-weight:bold;cursor:pointer;color:#111;border-radius:4px;text-decoration:none}
+button:hover,.btn:hover{background:#b99424}
+section{padding:55px 6%}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{font-size:30px;margin-bottom:8px}
+.section-title p{color:#666}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px}
+.category{background:#111;color:white;text-align:center;padding:25px 10px;border-radius:7px;cursor:pointer;border-bottom:3px solid var(--gold)}
+.category span{font-size:30px;display:block;margin-bottom:10px}
+.category:hover{background:#333}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.card{background:white;border-radius:8px;overflow:hidden;box-shadow:0 3px 12px #00000012}
+.card img{width:100%;height:190px;object-fit:cover}
+.card-body{padding:17px}
+.card h3{margin-bottom:9px}
+.card p{color:#666;font-size:14px;margin:7px 0}
+.price{color:#a17b12;font-weight:bold;font-size:18px;margin:12px 0}
+.tag{display:inline-block;background:#f5e9bf;padding:5px 9px;font-size:12px;border-radius:4px;margin-bottom:9px}
+.card-actions{display:flex;gap:8px;flex-wrap:wrap}
+.card-actions a{flex:1;text-align:center;font-size:12px}
+.dark-section{background:#111;color:white}
+.dark-section .section-title p{color:#bbb}
+.form-box{max-width:650px;margin:auto;background:white;color:#222;padding:25px;border-radius:8px}
+.form-box input,.form-box select,.form-box textarea{width:100%;padding:13px;margin:8px 0 15px;border:1px solid #ddd;border-radius:4px}
+.form-box label{font-weight:bold;font-size:14px}
+.form-box button{width:100%}
+footer{background:#080808;color:white;padding:35px 6%;text-align:center}
+footer .logo{margin-bottom:12px}
+footer p{margin:8px;color:#bbb;font-size:14px}
+.whatsapp{position:fixed;right:18px;bottom:18px;background:#168d48;color:white;padding:15px;border-radius:50px;text-decoration:none;font-weight:bold;z-index:10}
+.empty{padding:25px;text-align:center;color:#666;display:none}
+@media(max-width:600px){header{justify-content:center}nav{justify-content:center}.hero{min-height:390px}section{padding:40px 5%}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">KENYA<span style="color:white">RENTALS</span></div>
+<nav>
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#properties">Properties</a>
+<a href="#services">Services</a>
+<a href="#advertise">Advertise</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<h1>Find it. <span>Verify it.</span> Rent it.</h1>
+<p>Your trusted rental marketplace across Kenya.</p>
+<div class="search">
+<input id="searchInput" placeholder="What are you looking for?">
+<select id="categoryFilter">
+<option value="">All categories</option>
+<option>Cars</option><option>Houses</option><option>BnBs</option>
+<option>Hotels</option><option>Land</option><option>Security</option>
+<option>Cleaning</option><option>Tour Guides</option>
+</select>
+<button onclick="searchListings()">Search</button>
+</div>
+</div>
+
+<section id="categories">
+<div class="section-title"><h2>Explore Categories</h2><p>Everything you need in one marketplace</p></div>
+<div class="categories">
+<div class="category" onclick="filterCategory('Cars')"><span>🚙</span>Car Rentals</div>
+<div class="category" onclick="filterCategory('Houses')"><span>🏠</span>Houses</div>
+<div class="category" onclick="filterCategory('BnBs')"><span>🛏️</span>BnBs</div>
+<div class="category" onclick="filterCategory('Hotels')"><span>🏨</span>Hotels</div>
+<div class="category" onclick="filterCategory('Land')"><span>🌳</span>Land</div>
+<div class="category" onclick="filterCategory('Security')"><span>🛡️</span>Security</div>
+<div class="category" onclick="filterCategory('Cleaning')"><span>🧹</span>Cleaning</div>
+<div class="category" onclick="filterCategory('Tour Guides')"><span>🧭</span>Tour Guides</div>
+</div>
+</section>
+
+<section id="properties">
+<div class="section-title"><h2>Featured Rentals</h2><p>Discover rental opportunities across Kenya</p></div>
+<div class="grid" id="listingGrid">
+
+<div class="card" data-category="Cars">
+<img src="https://images.unsplash.com/photo-1623869675781-80aa31012a5a?w=800" alt="Toyota Prado SUV">
+<div class="card-body"><span class="tag">Cars</span><h3>Toyota Prado</h3><p>📍 Nairobi, Kenya</p><p>Comfortable SUV for travel and business.</p><div class="price">Contact for price</div><a class="btn" href="https://wa.me/254705681096?text=I%20am%20interested%20in%20the%20Prado">Enquire</a></div>
+</div>
+
+<div class="card" data-category="Houses">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Modern house">
+<div class="card-body"><span class="tag">Houses</span><h3>Modern Family House</h3><p>📍 Nairobi, Kenya</p><p>Beautiful modern residential property.</p><div class="price">Contact for price</div><a class="btn" href="https://wa.me/254705681096">Enquire</a></div>
+</div>
+
+<div class="card" data-category="BnBs">
+<img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800" alt="BnB bedroom">
+<div class="card-body"><span class="tag">BnBs</span><h3>Luxury BnB</h3><p>📍 Naivasha, Kenya</p><p>Relaxing accommodation for your getaway.</p><div class="price">Contact for price</div><a class="btn" href="https://wa.me/254705681096">Enquire</a></div>
+</div>
+
+<div class="card" data-category="Hotels">
+<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Hotel">
+<div class="card-body"><span class="tag">Hotels</span><h3>Luxury Hotel</h3><p>📍 Mombasa, Kenya</p><p>Comfortable accommodation and hospitality.</p><div class="price">Contact for price</div><a class="btn" href="https://wa.me/254705681096">Enquire</a></div>
+</div>
+
+<div class="card" data-category="Land">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800" alt="Land">
+<div class="card-body"><span class="tag">Land</span><h3>Development Land</h3><p>📍 Kiambu, Kenya</p><p>Land opportunity for development.</p><div class="price">Contact for price</div><a class="btn" href="https://wa.me/254705681096">Enquire</a></div>
+</div>
+
+<div class="card" data-category="Security">
+<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800" alt="Security professional">
+<div class="card-body"><span class="tag">Security</span><h3>Security Services</h3><p>📍 Kenya</p><p>Professional security services for homes and businesses.</p><div class="price">Contact for price</div><a class="btn" href="https://wa.me/254705681096">Enquire</a></div>
+</div>
+
+<div class="card" data-category="Cleaning">
+<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800" alt="Cleaning service">
+<div class="card-body"><span class="tag">Cleaning</span><h3>Professional Cleaning</h3><p>📍 Kenya</p><p>Home, office and commercial cleaning.</p><div class="price">Contact for price</div><a class="btn" href="https://wa.me/254705681096">Enquire</a></div>
+</div>
+
+<div class="card" data-category="Tour Guides">
+<img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800" alt="Kenya safari">
+<div class="card-body"><span class="tag">Tour Guides</span><h3>Kenya Tour Guide</h3><p>📍 Maasai Mara, Kenya</p><p>Explore Kenya with experienced local guides.</p><div class="price">Contact for price</div><a class="btn" href="https://wa.me/254705681096">Enquire</a></div>
+</div>
+
+</div>
+<p id="noResults" class="empty">No listings found. Try another search.</p>
+</section>
+
+<section class="dark-section" id="advertise">
+<div class="section-title"><h2>Advertise With KenyaRentals</h2><p>Are you an individual owner or registered company? List your property or service.</p></div>
+<div class="form-box">
+<form id="listingForm">
+<label>Advertiser name</label>
+<input id="owner" required placeholder="Your name or company">
+<label>Phone number</label>
+<input id="phone" required placeholder="07XXXXXXXX">
+<label>Listing title</label>
+<input id="title" required placeholder="e.g. 3 bedroom house">
+<label>Category</label>
+<select id="newCategory" required>
+<option value="">Select category</option>
+<option>Cars</option><option>Houses</option><option>BnBs</option>
+<option>Hotels</option><option>Land</option><option>Security</option>
+<option>Cleaning</option><option>Tour Guides</option>
+</select>
+<label>Location</label>
+<input id="location" required placeholder="Town / County">
+<label>Price (optional)</label>
+<input id="price" placeholder="e.g. KES 5,000 per day">
+<label>Image URL (optional)</label>
+<input id="photo" placeholder="Paste image link">
+<label>Description</label>
+<textarea id="description" rows="4" required placeholder="Describe your listing"></textarea>
+<button type="submit">Submit Listing</button>
+</form>
+<p style="color:#555;font-size:12px;margin-top:12px">Submissions are saved locally in this browser for demonstration. Online publishing and advertiser verification will be added with Supabase.</p>
+</div>
+</section>
+
+<section id="contact">
+<div class="section-title"><h2>Contact KenyaRentals</h2><p>Find it. Verify it. Rent it.</p></div>
+<div style="text-align:center">
+<p>📞 +254 705 681 096</p>
+<p style="margin:12px">📍 Kenya</p>
+<a class="btn" href="https://wa.me/254705681096?text=Hello%20KenyaRentals">Chat on WhatsApp</a>
+</div>
+</section>
+
+<footer>
+<div class="logo">KENYA RENTALS</div>
+<p>Find it. Verify it. Rent it.</p>
+<p>Your rental marketplace across Kenya and beyond.</p>
+<p>© 2026 KenyaRentals. All rights reserved.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/254705681096" target="_blank">WhatsApp</a>
+
+<script>
+const grid=document.getElementById('listingGrid');
+function searchListings(){
+ const term=document.getElementById('searchInput').value.toLowerCase();
+ const cat=document.getElementById('categoryFilter').value;
+ filter(term,cat);
+}
+function filterCategory(cat){
+ document.getElementById('categoryFilter').value=cat;
+ document.getElementById('searchInput').value='';
+ filter('',cat);
+ document.getElementById('properties').scrollIntoView({behavior:'smooth'});
+}
+function filter(term,cat){
+ let visible=0;
+ grid.querySelectorAll('.card').forEach(card=>{
+ const matchText=card.innerText.toLowerCase().includes(term);
+ const matchCat=!cat||card.dataset.category===cat;
+ card.style.display=matchText&&matchCat?'':'none';
+ if(matchText&&matchCat)visible++;
+ });
+ document.getElementById('noResults').style.display=visible?'none':'block';
+}
+document.getElementById('listingForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const item={
+ owner:document.getElementById('owner').value,
+ phone:document.getElementById('phone').value,
+ title:document.getElementById('title').value,
+ category:document.getElementById('newCategory').value,
+ location:document.getElementById('location').value,
+ price:document.getElementById('price').value||'Contact for price',
+ photo:document.getElementById('photo').value,
+ description:document.getElementById('description').value
+ };
+ let saved=JSON.parse(localStorage.getItem('kenyaRentalsListings')||'[]');
+ saved.push(item);
+ localStorage.setItem('kenyaRentalsListings',JSON.stringify(saved));
+ alert('Listing saved on this browser. It is not yet publicly published. Contact KenyaRentals to arrange verification.');
+ this.reset();
+});
+</script>
+</body>
+</html>
