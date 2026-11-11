@@ -8,228 +8,159 @@
 
 <style>
 :root {
-  --gold: #d4af37;
-  --black: #080808;
-  --card: #151515;
-  --white: #ffffff;
+  --gold:#d4af37;
+  --black:#080808;
+  --card:#151515;
 }
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
-
 body {
-  background: var(--black);
-  color: var(--white);
-  font-family: Arial, sans-serif;
+  background:var(--black);
+  color:white;
+  font-family:Arial,sans-serif;
 }
-
 header {
-  background: #050505;
-  padding: 18px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  border-bottom: 1px solid var(--gold);
+  background:#050505;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  border-bottom:1px solid var(--gold);
 }
-
 .logo {
-  font-size: 27px;
-  font-weight: bold;
-  color: var(--gold);
+  font-size:26px;
+  font-weight:bold;
+  color:var(--gold);
 }
-
 nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
 }
-
 nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
 }
-
-nav a:hover {
-  color: var(--gold);
-}
+nav a:hover {color:var(--gold)}
 
 .hero {
-  min-height: 520px;
+  min-height:570px;
   background:
-  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
-  url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=85");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
+  linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.72)),
+  url("https://images.unsplash.com/photo-1759256243437-9c8f7238c42b?auto=format&fit=crop&w=2000&q=85");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px 20px;
 }
-
 .hero h1 {
-  font-size: clamp(35px, 6vw, 60px);
-  color: var(--gold);
-  margin-bottom: 20px;
+  color:var(--gold);
+  font-size:clamp(36px,6vw,65px);
+  margin-bottom:20px;
+  text-shadow:2px 2px 8px black;
 }
-
 .hero p {
-  font-size: 19px;
-  margin-bottom: 28px;
+  font-size:19px;
+  margin-bottom:30px;
+  text-shadow:2px 2px 5px black;
 }
-
 .btn {
-  display: inline-block;
-  background: var(--gold);
-  color: black;
-  padding: 14px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
+  display:inline-block;
+  background:var(--gold);
+  color:black;
+  padding:14px 25px;
+  border-radius:5px;
+  text-decoration:none;
+  font-weight:bold;
 }
+.btn:hover {background:white}
 
-.btn:hover {
-  background: white;
+section {padding:65px 6%}
+.dark {background:#111}
+.title {
+  text-align:center;
+  color:var(--gold);
+  font-size:32px;
+  margin-bottom:15px;
 }
-
-section {
-  padding: 65px 6%;
+.desc {
+  text-align:center;
+  color:#bbb;
+  margin-bottom:35px;
+  line-height:1.6;
 }
-
-.section-title {
-  text-align: center;
-  color: var(--gold);
-  font-size: 32px;
-  margin-bottom: 15px;
-}
-
-.section-desc {
-  text-align: center;
-  color: #bbb;
-  margin-bottom: 35px;
-}
-
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-  gap: 24px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:24px;
 }
-
 .card {
-  background: var(--card);
-  border-radius: 9px;
-  overflow: hidden;
-  border-bottom: 3px solid var(--gold);
-  transition: .3s;
+  background:var(--card);
+  border-radius:9px;
+  overflow:hidden;
+  border-bottom:3px solid var(--gold);
+  transition:.3s;
 }
-
-.card:hover {
-  transform: translateY(-6px);
-}
-
+.card:hover {transform:translateY(-5px)}
 .card img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  display: block;
+  width:100%;
+  height:205px;
+  object-fit:cover;
+  display:block;
 }
-
-.card-body {
-  padding: 20px;
-}
-
+.card-body {padding:20px}
 .card h3 {
-  color: var(--gold);
-  margin-bottom: 10px;
+  color:var(--gold);
+  margin-bottom:12px;
 }
-
 .card p {
-  color: #ccc;
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 15px;
+  color:#ccc;
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:15px;
 }
-
 .card a {
-  color: var(--gold);
-  text-decoration: none;
-  font-weight: bold;
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:bold;
 }
-
-.dark-section {
-  background: #111;
+.banner {
+  text-align:center;
+  padding:60px 20px;
+  background:linear-gradient(120deg,#151515,#352908);
 }
-
-.search-area {
-  background: #151515;
-  padding: 25px;
-  max-width: 750px;
-  margin: auto;
-  border-radius: 8px;
-  text-align: center;
+.banner h2 {
+  color:var(--gold);
+  margin-bottom:15px;
 }
-
-.search-area input,
-.search-area select {
-  padding: 13px;
-  margin: 6px;
-  width: 90%;
-  max-width: 220px;
-  background: #080808;
-  border: 1px solid var(--gold);
-  color: white;
-  border-radius: 4px;
-}
-
-.services-banner {
-  text-align: center;
-  background: linear-gradient(120deg,#171717,#30250b);
-  padding: 55px 20px;
-}
-
-.services-banner h2 {
-  color: var(--gold);
-  margin-bottom: 15px;
-}
-
 footer {
-  background: #050505;
-  text-align: center;
-  padding: 35px 15px;
-  border-top: 1px solid var(--gold);
-  color: #aaa;
-  line-height: 2;
+  text-align:center;
+  background:#050505;
+  padding:35px 15px;
+  border-top:1px solid var(--gold);
+  color:#aaa;
+  line-height:2;
 }
-
 footer a {
-  color: var(--gold);
-  text-decoration: none;
+  color:var(--gold);
+  text-decoration:none;
 }
-
 @media(max-width:600px) {
-  header {
-    justify-content: center;
-    gap: 18px;
-  }
-
-  nav {
-    justify-content: center;
-    gap: 14px;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
-
-  section {
-    padding: 45px 5%;
-  }
+  header {justify-content:center}
+  nav {justify-content:center;gap:12px}
+  nav a {font-size:12px}
+  section {padding:45px 5%}
+  .hero {min-height:460px}
 }
 </style>
 </head>
@@ -249,6 +180,8 @@ footer a {
   </nav>
 </header>
 
+<!-- HOMEPAGE BACKGROUND -->
+
 <div class="hero" id="home">
   <div>
     <h1>Find It. Verify It. Rent It.</h1>
@@ -257,83 +190,79 @@ footer a {
   </div>
 </div>
 
+<!-- CATEGORIES -->
+
 <section id="categories">
-  <h2 class="section-title">Explore Our Marketplace</h2>
-  <p class="section-desc">Find what you need, wherever you need it.</p>
+  <h2 class="title">Explore Our Marketplace</h2>
+  <p class="desc">Everything you need, all in one marketplace.</p>
 
   <div class="grid">
-    <div class="card">
-      <div class="card-body">
-        <h3>Vehicles</h3>
-        <p>Cars, SUVs, buses and commercial vehicles.</p>
-        <a href="#vehicles">Explore Vehicles →</a>
-      </div>
-    </div>
+    <div class="card"><div class="card-body">
+      <h3>Vehicles</h3>
+      <p>Luxury cars, SUVs, buses and commercial vehicles.</p>
+      <a href="#vehicles">Explore Vehicles →</a>
+    </div></div>
 
-    <div class="card">
-      <div class="card-body">
-        <h3>Properties</h3>
-        <p>Houses, apartments, land and holiday homes.</p>
-        <a href="#properties">Explore Properties →</a>
-      </div>
-    </div>
+    <div class="card"><div class="card-body">
+      <h3>Properties</h3>
+      <p>Houses, apartments, BnBs and holiday homes.</p>
+      <a href="#properties">Explore Properties →</a>
+    </div></div>
 
-    <div class="card">
-      <div class="card-body">
-        <h3>Aviation</h3>
-        <p>Private jets, helicopters and aircraft rentals.</p>
-        <a href="#aviation">Explore Aviation →</a>
-      </div>
-    </div>
+    <div class="card"><div class="card-body">
+      <h3>Aviation</h3>
+      <p>Private jets and helicopter rentals.</p>
+      <a href="#aviation">Explore Aviation →</a>
+    </div></div>
 
-    <div class="card">
-      <div class="card-body">
-        <h3>Professional Services</h3>
-        <p>Cleaning, security, tours and other services.</p>
-        <a href="#services">Explore Services →</a>
-      </div>
-    </div>
+    <div class="card"><div class="card-body">
+      <h3>Professional Services</h3>
+      <p>Cleaning, security, tour guides and more.</p>
+      <a href="#services">Explore Services →</a>
+    </div></div>
   </div>
 </section>
 
-<section class="dark-section" id="vehicles">
-  <h2 class="section-title">Vehicles for Rent</h2>
-  <p class="section-desc">Choose the right vehicle for your journey.</p>
+<!-- VEHICLES -->
+
+<section class="dark" id="vehicles">
+  <h2 class="title">Vehicles for Rent</h2>
+  <p class="desc">Find the perfect vehicle for your journey.</p>
 
   <div class="grid">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1623869675781-80aa31012a5a?auto=format&fit=crop&w=900&q=85" alt="Toyota Prado">
+      <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1000&q=85" alt="Toyota Prado SUV">
       <div class="card-body">
         <h3>Toyota Prado</h3>
-        <p>Premium SUV for business, travel and family adventures.</p>
+        <p>Premium SUV for business, family and adventure travel.</p>
         <a href="#contact">Enquire Now →</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=85" alt="Land Cruiser">
-      <div class="card-body">
-        <h3>Land Cruiser</h3>
-        <p>Luxury and power for city and off-road journeys.</p>
-        <a href="#contact">Enquire Now →</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85" alt="Luxury sports car">
+      <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=85" alt="Luxury vehicle">
       <div class="card-body">
         <h3>Luxury Cars</h3>
-        <p>Discover premium cars for special occasions.</p>
+        <p>Discover premium vehicles for special occasions.</p>
         <a href="#contact">Enquire Now →</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85" alt="Commercial vehicle">
+      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=85" alt="SUV rental">
       <div class="card-body">
-        <h3>Commercial Vehicles</h3>
-        <p>Transport and business vehicles for different needs.</p>
+        <h3>4x4 & SUVs</h3>
+        <p>Vehicles for road trips and off-road adventures.</p>
+        <a href="#contact">Enquire Now →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Matatu_Manyanga.jpg" alt="Kenyan manyanga matatu">
+      <div class="card-body">
+        <h3>Commercial Vehicles & Manyanga</h3>
+        <p>Customised matatus, buses and commercial transport.</p>
         <a href="#contact">Enquire Now →</a>
       </div>
     </div>
@@ -341,14 +270,16 @@ footer a {
   </div>
 </section>
 
+<!-- AVIATION -->
+
 <section id="aviation">
-  <h2 class="section-title">Private Aviation</h2>
-  <p class="section-desc">Experience premium air travel and aircraft hire.</p>
+  <h2 class="title">Private Aviation</h2>
+  <p class="desc">Discover premium air travel and aircraft hire.</p>
 
   <div class="grid">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=900&q=85" alt="Private jet">
+      <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1000&q=85" alt="Private jet">
       <div class="card-body">
         <h3>Private Jets</h3>
         <p>Private aircraft for business and luxury travel.</p>
@@ -357,7 +288,7 @@ footer a {
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=900&q=85" alt="Helicopter">
+      <img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1000&q=85" alt="Helicopter">
       <div class="card-body">
         <h3>Helicopters</h3>
         <p>Helicopter hire for tours, transfers and special trips.</p>
@@ -368,23 +299,25 @@ footer a {
   </div>
 </section>
 
-<section class="dark-section" id="properties">
-  <h2 class="section-title">Properties for Rent</h2>
-  <p class="section-desc">Find your next home, stay or investment space.</p>
+<!-- PROPERTIES -->
+
+<section class="dark" id="properties">
+  <h2 class="title">Properties for Rent</h2>
+  <p class="desc">Find your next home, holiday stay or business space.</p>
 
   <div class="grid">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=85" alt="Luxury house">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=85" alt="Luxury house">
       <div class="card-body">
         <h3>Houses</h3>
-        <p>Discover homes for long-term rental.</p>
+        <p>Beautiful homes for long-term rental.</p>
         <a href="#contact">View Listings →</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85" alt="Apartment">
+      <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85" alt="Modern apartment">
       <div class="card-body">
         <h3>Apartments</h3>
         <p>Modern apartments in convenient locations.</p>
@@ -393,16 +326,16 @@ footer a {
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85" alt="Holiday resort">
+      <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=85" alt="Holiday resort">
       <div class="card-body">
         <h3>BnBs & Holiday Homes</h3>
-        <p>Find comfortable places for your next getaway.</p>
+        <p>Comfortable places for your next getaway.</p>
         <a href="#contact">View Listings →</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85" alt="Commercial real estate">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=85" alt="Commercial property">
       <div class="card-body">
         <h3>Commercial Spaces</h3>
         <p>Offices, shops and business premises.</p>
@@ -413,14 +346,16 @@ footer a {
   </div>
 </section>
 
+<!-- SERVICES -->
+
 <section id="services">
-  <h2 class="section-title">Services & Rentals</h2>
-  <p class="section-desc">Connect with service providers across Kenya.</p>
+  <h2 class="title">Services & Rentals</h2>
+  <p class="desc">Connect with professional service providers across Kenya.</p>
 
   <div class="grid">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=85" alt="Cleaning services">
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=85" alt="Cleaning services">
       <div class="card-body">
         <h3>Cleaning Services</h3>
         <p>Professional home and office cleaning.</p>
@@ -429,28 +364,28 @@ footer a {
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=85" alt="Security services">
+      <img src="https://images.pexels.com/photos/22234222/pexels-photo-22234222/free-photo-of-guard-dog-on-chain-sitting-by-man-in-uniform.jpeg?auto=compress&dpr=1&h=1000&w=1260" alt="African security guard with German Shepherd">
       <div class="card-body">
         <h3>Security Services</h3>
-        <p>Security personnel and protection services.</p>
+        <p>Professional security personnel and canine protection services.</p>
         <a href="#contact">Find a Provider →</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=900&q=85" alt="Tourism and travel">
+      <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1000&q=85" alt="Tourism">
       <div class="card-body">
         <h3>Tour Guides</h3>
-        <p>Discover Kenya with local tour guides in every county.</p>
+        <p>Explore Kenya with tour guides across all counties.</p>
         <a href="#contact">Find a Guide →</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=85" alt="Construction services">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=85" alt="Construction equipment">
       <div class="card-body">
         <h3>Construction Equipment</h3>
-        <p>Find equipment and machinery for your projects.</p>
+        <p>Machinery and equipment for construction projects.</p>
         <a href="#contact">Explore Rentals →</a>
       </div>
     </div>
@@ -458,20 +393,21 @@ footer a {
   </div>
 </section>
 
-<div class="services-banner" id="advertise">
+<!-- ADVERTISE -->
+
+<div class="banner" id="advertise">
   <h2>Have Something to Rent?</h2>
-  <p>Join our marketplace. Advertise your property, vehicle or service.</p>
+  <p>Advertise your property, vehicle or professional service.</p>
   <br>
   <a href="#contact" class="btn">Become an Advertiser</a>
 </div>
 
-<section id="contact">
-  <h2 class="section-title">Contact & Enquiries</h2>
-  <p class="section-desc">Interested in a rental or advertising with us?</p>
+<!-- CONTACT -->
 
-  <div class="search-area">
-    <p>Contact KenyaRentals to get started.</p>
-    <br>
+<section id="contact">
+  <h2 class="title">Contact KenyaRentals</h2>
+  <p class="desc">Interested in renting or advertising with us?</p>
+  <div style="text-align:center">
     <a href="mailto:info@kenyarentals.com" class="btn">Email Us</a>
   </div>
 </section>
