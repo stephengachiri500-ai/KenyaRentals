@@ -5,10 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KenyaRentals | Find It. Verify It. Rent It.</title>
+<meta name="description" content="Find verified rental properties, vehicles, aviation and professional services across Kenya and beyond.">
 
 <style>
 :root {
-  --gold:#d4af37;
+  --gold:#D4AF37;
   --black:#080808;
   --card:#151515;
 }
@@ -22,6 +23,7 @@ body {
   background:var(--black);
   color:white;
   font-family:Arial,sans-serif;
+  line-height:1.6;
 }
 header {
   background:#050505;
@@ -37,6 +39,7 @@ header {
   font-size:26px;
   font-weight:bold;
   color:var(--gold);
+  letter-spacing:1px;
 }
 nav {
   display:flex;
@@ -49,55 +52,53 @@ nav a {
   font-size:14px;
 }
 nav a:hover {color:var(--gold)}
-
 .hero {
-  min-height:570px;
+  min-height:580px;
   background:
   linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.72)),
-  url("https://images.unsplash.com/photo-1759256243437-9c8f7238c42b?auto=format&fit=crop&w=2000&q=85");
+  url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85");
   background-size:cover;
   background-position:center;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:30px 20px;
+  padding:35px 20px;
 }
 .hero h1 {
   color:var(--gold);
-  font-size:clamp(36px,6vw,65px);
+  font-size:clamp(36px,6vw,66px);
+  line-height:1.15;
   margin-bottom:20px;
-  text-shadow:2px 2px 8px black;
+  text-shadow:2px 3px 8px black;
 }
 .hero p {
   font-size:19px;
   margin-bottom:30px;
-  text-shadow:2px 2px 5px black;
 }
 .btn {
   display:inline-block;
   background:var(--gold);
   color:black;
-  padding:14px 25px;
+  padding:13px 25px;
   border-radius:5px;
   text-decoration:none;
   font-weight:bold;
 }
 .btn:hover {background:white}
-
 section {padding:65px 6%}
 .dark {background:#111}
 .title {
   text-align:center;
   color:var(--gold);
   font-size:32px;
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 .desc {
   text-align:center;
   color:#bbb;
-  margin-bottom:35px;
-  line-height:1.6;
+  margin:0 auto 35px;
+  max-width:750px;
 }
 .grid {
   display:grid;
@@ -109,25 +110,26 @@ section {padding:65px 6%}
   border-radius:9px;
   overflow:hidden;
   border-bottom:3px solid var(--gold);
-  transition:.3s;
+  transition:transform .3s;
 }
 .card:hover {transform:translateY(-5px)}
 .card img {
   width:100%;
-  height:205px;
+  height:210px;
   object-fit:cover;
   display:block;
+  background:#222;
 }
 .card-body {padding:20px}
 .card h3 {
   color:var(--gold);
-  margin-bottom:12px;
+  font-size:19px;
+  margin-bottom:10px;
 }
 .card p {
   color:#ccc;
   font-size:14px;
-  line-height:1.6;
-  margin-bottom:15px;
+  margin-bottom:16px;
 }
 .card a {
   color:var(--gold);
@@ -136,12 +138,23 @@ section {padding:65px 6%}
 }
 .banner {
   text-align:center;
-  padding:60px 20px;
-  background:linear-gradient(120deg,#151515,#352908);
+  padding:65px 20px;
+  background:linear-gradient(120deg,#171717,#382b0b);
 }
 .banner h2 {
   color:var(--gold);
-  margin-bottom:15px;
+  font-size:30px;
+  margin-bottom:12px;
+}
+.banner p {margin-bottom:22px}
+.contact-area {
+  text-align:center;
+  max-width:700px;
+  margin:auto;
+  background:#151515;
+  padding:30px;
+  border:1px solid #66521b;
+  border-radius:8px;
 }
 footer {
   text-align:center;
@@ -151,16 +164,12 @@ footer {
   color:#aaa;
   line-height:2;
 }
-footer a {
-  color:var(--gold);
-  text-decoration:none;
-}
 @media(max-width:600px) {
   header {justify-content:center}
   nav {justify-content:center;gap:12px}
   nav a {font-size:12px}
+  .hero {min-height:470px}
   section {padding:45px 5%}
-  .hero {min-height:460px}
 }
 </style>
 </head>
@@ -180,244 +189,239 @@ footer a {
   </nav>
 </header>
 
-<!-- HOMEPAGE BACKGROUND -->
-
+<!-- THE MAJESTIC APPEAL -->
 <div class="hero" id="home">
   <div>
     <h1>Find It. Verify It. Rent It.</h1>
     <p>Your trusted marketplace for rentals across Kenya and beyond.</p>
-    <a href="#categories" class="btn">Explore Rentals</a>
+    <a href="#categories" class="btn">Explore KenyaRentals</a>
   </div>
 </div>
 
 <!-- CATEGORIES -->
-
 <section id="categories">
-  <h2 class="title">Explore Our Marketplace</h2>
-  <p class="desc">Everything you need, all in one marketplace.</p>
-
-  <div class="grid">
-    <div class="card"><div class="card-body">
-      <h3>Vehicles</h3>
-      <p>Luxury cars, SUVs, buses and commercial vehicles.</p>
-      <a href="#vehicles">Explore Vehicles →</a>
-    </div></div>
-
-    <div class="card"><div class="card-body">
-      <h3>Properties</h3>
-      <p>Houses, apartments, BnBs and holiday homes.</p>
-      <a href="#properties">Explore Properties →</a>
-    </div></div>
-
-    <div class="card"><div class="card-body">
-      <h3>Aviation</h3>
-      <p>Private jets and helicopter rentals.</p>
-      <a href="#aviation">Explore Aviation →</a>
-    </div></div>
-
-    <div class="card"><div class="card-body">
-      <h3>Professional Services</h3>
-      <p>Cleaning, security, tour guides and more.</p>
-      <a href="#services">Explore Services →</a>
-    </div></div>
-  </div>
+<h2 class="title">Explore Our Marketplace</h2>
+<p class="desc">Everything you need, all in one marketplace.</p>
+<div class="grid">
+  <div class="card"><div class="card-body">
+    <h3>Vehicles</h3>
+    <p>Luxury cars, SUVs, buses and commercial vehicles.</p>
+    <a href="#vehicles">Explore Vehicles →</a>
+  </div></div>
+  <div class="card"><div class="card-body">
+    <h3>Properties</h3>
+    <p>Houses, apartments, BnBs and holiday homes.</p>
+    <a href="#properties">Explore Properties →</a>
+  </div></div>
+  <div class="card"><div class="card-body">
+    <h3>Aviation</h3>
+    <p>Private jets and helicopter rentals.</p>
+    <a href="#aviation">Explore Aviation →</a>
+  </div></div>
+  <div class="card"><div class="card-body">
+    <h3>Professional Services</h3>
+    <p>Cleaning, security, tour guides and engineering.</p>
+    <a href="#services">Explore Services →</a>
+  </div></div>
+</div>
 </section>
 
 <!-- VEHICLES -->
-
 <section class="dark" id="vehicles">
-  <h2 class="title">Vehicles for Rent</h2>
-  <p class="desc">Find the perfect vehicle for your journey.</p>
+<h2 class="title">Vehicles for Rent</h2>
+<p class="desc">Find the perfect vehicle for your journey.</p>
+<div class="grid">
 
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1000&q=85" alt="Toyota Prado SUV">
-      <div class="card-body">
-        <h3>Toyota Prado</h3>
-        <p>Premium SUV for business, family and adventure travel.</p>
-        <a href="#contact">Enquire Now →</a>
-      </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1000&q=85" alt="Toyota Prado">
+    <div class="card-body">
+      <h3>Toyota Prado</h3>
+      <p>Premium SUV for business, family and adventure travel.</p>
+      <a href="#contact">Enquire Now →</a>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=85" alt="Luxury vehicle">
-      <div class="card-body">
-        <h3>Luxury Cars</h3>
-        <p>Discover premium vehicles for special occasions.</p>
-        <a href="#contact">Enquire Now →</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=85" alt="SUV rental">
-      <div class="card-body">
-        <h3>4x4 & SUVs</h3>
-        <p>Vehicles for road trips and off-road adventures.</p>
-        <a href="#contact">Enquire Now →</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Matatu_Manyanga.jpg" alt="Kenyan manyanga matatu">
-      <div class="card-body">
-        <h3>Commercial Vehicles & Manyanga</h3>
-        <p>Customised matatus, buses and commercial transport.</p>
-        <a href="#contact">Enquire Now →</a>
-      </div>
-    </div>
-
   </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=85" alt="Luxury car">
+    <div class="card-body">
+      <h3>Luxury Cars</h3>
+      <p>Premium vehicles for business and special occasions.</p>
+      <a href="#contact">Enquire Now →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=85" alt="SUV">
+    <div class="card-body">
+      <h3>4x4 & SUVs</h3>
+      <p>Vehicles for road trips and off-road adventures.</p>
+      <a href="#contact">Enquire Now →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://cdn.tuko.co.ke/images/1200x675/3f8a0e6477bf5af3.jpeg?v=1" alt="Kenyan manyanga matatu">
+    <div class="card-body">
+      <h3>Manyanga & Commercial Vehicles</h3>
+      <p>Customised matatus, buses and commercial transport.</p>
+      <a href="#contact">Enquire Now →</a>
+    </div>
+  </div>
+
+</div>
 </section>
 
 <!-- AVIATION -->
-
 <section id="aviation">
-  <h2 class="title">Private Aviation</h2>
-  <p class="desc">Discover premium air travel and aircraft hire.</p>
+<h2 class="title">Private Aviation</h2>
+<p class="desc">Premium aircraft and helicopter rentals.</p>
+<div class="grid">
 
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1000&q=85" alt="Private jet">
-      <div class="card-body">
-        <h3>Private Jets</h3>
-        <p>Private aircraft for business and luxury travel.</p>
-        <a href="#contact">Enquire Now →</a>
-      </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1000&q=85" alt="Private jet">
+    <div class="card-body">
+      <h3>Private Jets</h3>
+      <p>Private aircraft for luxury and business travel.</p>
+      <a href="#contact">Enquire Now →</a>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1000&q=85" alt="Helicopter">
-      <div class="card-body">
-        <h3>Helicopters</h3>
-        <p>Helicopter hire for tours, transfers and special trips.</p>
-        <a href="#contact">Enquire Now →</a>
-      </div>
-    </div>
-
   </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1725368913748-3a09065da23b?auto=format&fit=crop&w=1200&q=85" alt="Helicopter">
+    <div class="card-body">
+      <h3>Helicopter Rentals</h3>
+      <p>Helicopter hire for tours, transfers and special journeys.</p>
+      <a href="#contact">Enquire Now →</a>
+    </div>
+  </div>
+
+</div>
 </section>
 
 <!-- PROPERTIES -->
-
 <section class="dark" id="properties">
-  <h2 class="title">Properties for Rent</h2>
-  <p class="desc">Find your next home, holiday stay or business space.</p>
+<h2 class="title">Properties for Rent</h2>
+<p class="desc">Find your next home, holiday stay or business space.</p>
+<div class="grid">
 
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=85" alt="Luxury house">
-      <div class="card-body">
-        <h3>Houses</h3>
-        <p>Beautiful homes for long-term rental.</p>
-        <a href="#contact">View Listings →</a>
-      </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=85" alt="Luxury house">
+    <div class="card-body">
+      <h3>Houses</h3>
+      <p>Beautiful homes for long-term rental.</p>
+      <a href="#contact">View Listings →</a>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85" alt="Modern apartment">
-      <div class="card-body">
-        <h3>Apartments</h3>
-        <p>Modern apartments in convenient locations.</p>
-        <a href="#contact">View Listings →</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=85" alt="Holiday resort">
-      <div class="card-body">
-        <h3>BnBs & Holiday Homes</h3>
-        <p>Comfortable places for your next getaway.</p>
-        <a href="#contact">View Listings →</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=85" alt="Commercial property">
-      <div class="card-body">
-        <h3>Commercial Spaces</h3>
-        <p>Offices, shops and business premises.</p>
-        <a href="#contact">View Listings →</a>
-      </div>
-    </div>
-
   </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85" alt="Apartment">
+    <div class="card-body">
+      <h3>Apartments</h3>
+      <p>Modern apartments in convenient locations.</p>
+      <a href="#contact">View Listings →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=85" alt="Holiday resort">
+    <div class="card-body">
+      <h3>BnBs & Holiday Homes</h3>
+      <p>Comfortable accommodation for your next getaway.</p>
+      <a href="#contact">View Listings →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=85" alt="Commercial property">
+    <div class="card-body">
+      <h3>Commercial Spaces</h3>
+      <p>Offices, shops and business premises.</p>
+      <a href="#contact">View Listings →</a>
+    </div>
+  </div>
+
+</div>
 </section>
 
 <!-- SERVICES -->
-
 <section id="services">
-  <h2 class="title">Services & Rentals</h2>
-  <p class="desc">Connect with professional service providers across Kenya.</p>
+<h2 class="title">Services & Rentals</h2>
+<p class="desc">Professional service providers and equipment across Kenya.</p>
+<div class="grid">
 
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=85" alt="Cleaning services">
-      <div class="card-body">
-        <h3>Cleaning Services</h3>
-        <p>Professional home and office cleaning.</p>
-        <a href="#contact">Find a Provider →</a>
-      </div>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=85" alt="Cleaning team mopping floors">
+    <div class="card-body">
+      <h3>Cleaning Services</h3>
+      <p>Professional cleaning teams for homes, offices and commercial buildings.</p>
+      <a href="#contact">Find a Provider →</a>
     </div>
-
-    <div class="card">
-      <img src="https://images.pexels.com/photos/22234222/pexels-photo-22234222/free-photo-of-guard-dog-on-chain-sitting-by-man-in-uniform.jpeg?auto=compress&dpr=1&h=1000&w=1260" alt="African security guard with German Shepherd">
-      <div class="card-body">
-        <h3>Security Services</h3>
-        <p>Professional security personnel and canine protection services.</p>
-        <a href="#contact">Find a Provider →</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1000&q=85" alt="Tourism">
-      <div class="card-body">
-        <h3>Tour Guides</h3>
-        <p>Explore Kenya with tour guides across all counties.</p>
-        <a href="#contact">Find a Guide →</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=85" alt="Construction equipment">
-      <div class="card-body">
-        <h3>Construction Equipment</h3>
-        <p>Machinery and equipment for construction projects.</p>
-        <a href="#contact">Explore Rentals →</a>
-      </div>
-    </div>
-
   </div>
+
+  <div class="card">
+    <img src="https://amedhisecurity.co.ke/lovable-uploads/team.jpeg" alt="Security team and German Shepherd dogs">
+    <div class="card-body">
+      <h3>Security Services</h3>
+      <p>Professional security guards and trained K9 protection teams.</p>
+      <a href="#contact">Find a Provider →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://storage.googleapis.com/stateless-visitkenya-or-ke/2025/11/3b39cd5d-the-heart-of-safari-a-tribute-to-our-guide.jpg" alt="Kenyan safari tour guide">
+    <div class="card-body">
+      <h3>Tour Guides</h3>
+      <p>Discover Kenya with professional local guides across all 47 counties.</p>
+      <a href="#contact">Find a Guide →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=85" alt="Construction cranes and machinery">
+    <div class="card-body">
+      <h3>Construction Equipment</h3>
+      <p>Tower cranes, heavy machinery and construction equipment for hire.</p>
+      <a href="#contact">Explore Equipment →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1000&q=85" alt="Three construction engineers">
+    <div class="card-body">
+      <h3>Engineering Professionals</h3>
+      <p>Connect with engineering teams for construction, technical and infrastructure projects.</p>
+      <a href="#contact">Find Engineers →</a>
+    </div>
+  </div>
+
+</div>
 </section>
 
-<!-- ADVERTISE -->
-
+<!-- ADVERTISERS -->
 <div class="banner" id="advertise">
-  <h2>Have Something to Rent?</h2>
-  <p>Advertise your property, vehicle or professional service.</p>
-  <br>
-  <a href="#contact" class="btn">Become an Advertiser</a>
+<h2>Have Something to Rent?</h2>
+<p>Join KenyaRentals and advertise your property, vehicle, equipment or service.</p>
+<a href="#contact" class="btn">Become an Advertiser</a>
 </div>
 
 <!-- CONTACT -->
-
 <section id="contact">
-  <h2 class="title">Contact KenyaRentals</h2>
-  <p class="desc">Interested in renting or advertising with us?</p>
-  <div style="text-align:center">
-    <a href="mailto:info@kenyarentals.com" class="btn">Email Us</a>
-  </div>
+<h2 class="title">Contact KenyaRentals</h2>
+<p class="desc">Interested in renting, advertising or partnering with us?</p>
+<div class="contact-area">
+<h3 style="color:#D4AF37;margin-bottom:12px;">Let's Connect</h3>
+<p>Contact our team for advertising and rental enquiries.</p>
+<p style="margin-top:12px;color:#aaa;">Advertiser contact details will be provided through the relevant listing.</p>
+</div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="logo">KENYA RENTALS</div>
-  <p>Find It. Verify It. Rent It.</p>
-  <p>Connecting renters and advertisers across Kenya and beyond.</p>
-  <p>© 2026 KenyaRentals. All Rights Reserved.</p>
-  <p>Founded and owned by Stephen Gachiri Maina.</p>
+<div class="logo">KENYA RENTALS</div>
+<p>Find It. Verify It. Rent It.</p>
+<p>Connecting renters and advertisers across Kenya and beyond.</p>
+<p>© 2026 KenyaRentals. All Rights Reserved.</p>
+<p>Founded and owned by Stephen Gachiri Maina.</p>
 </footer>
 
 </body>
