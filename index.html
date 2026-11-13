@@ -1,525 +1,1083 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>KenyaRentals | Find It. Verify It. Rent It.</title>
+
+<meta name="description" content="KenyaRentals is a Kenyan rental marketplace for vehicles, properties, aviation, construction equipment, agricultural machinery and professional services.">
+
+<meta name="theme-color" content="#080808">
 
 <style>
 :root {
-  --gold:#d4af37;
-  --black:#080808;
+  --gold: #d4af37;
+  --black: #080808;
+  --panel: #151515;
+  --muted: #c5c5c5;
 }
 
 * {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background:var(--black);
-  color:white;
-  font-family:Arial,sans-serif;
+  background: var(--black);
+  color: white;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+button, input, select {
+  font: inherit;
 }
 
 /* HEADER */
 
 header {
-  background:#080808;
-  padding:18px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  border-bottom:1px solid var(--gold);
+  background: #080808;
+  padding: 17px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--gold);
 }
 
 .logo {
-  color:var(--gold);
-  font-size:27px;
-  font-weight:bold;
+  color: var(--gold);
+  font-size: 27px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
 }
 
-.logo span { color:white; }
+.logo span {
+  color: white;
+}
 
 nav {
-  display:flex;
-  gap:22px;
-  flex-wrap:wrap;
+  display: flex;
+  gap: 21px;
+  flex-wrap: wrap;
 }
 
 nav a {
-  color:white;
-  text-decoration:none;
-  font-size:14px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
 }
 
-nav a:hover { color:var(--gold); }
+nav a:hover {
+  color: var(--gold);
+}
 
-/* HERO - KEEP EXISTING BACKGROUND */
+/* HERO */
 
 .hero {
-  min-height:510px;
+  min-height: 540px;
   background:
-    linear-gradient(rgba(0,0,0,.38),rgba(0,0,0,.68)),
-    url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600")
-    center 55%/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px 20px;
+    linear-gradient(
+      rgba(0,0,0,.38),
+      rgba(0,0,0,.76)
+    ),
+    url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800")
+    center 55% / cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 45px 20px;
 }
 
-.hero-content { max-width:850px; }
+.hero-content {
+  max-width: 900px;
+}
 
 .hero h1 {
-  color:var(--gold);
-  font-size:clamp(36px,6vw,62px);
-  margin-bottom:18px;
+  color: var(--gold);
+  font-size: clamp(36px, 6vw, 65px);
+  line-height: 1.15;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size:18px;
-  line-height:1.7;
-  margin-bottom:28px;
+  font-size: 18px;
+  max-width: 750px;
+  margin: 0 auto 28px;
 }
 
-.hero-button {
-  display:inline-block;
-  padding:14px 32px;
-  background:var(--gold);
-  color:black;
-  text-decoration:none;
-  font-weight:bold;
-  border-radius:5px;
+.gold-button {
+  display: inline-block;
+  background: var(--gold);
+  color: #080808;
+  padding: 14px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.gold-button:hover {
+  background: white;
 }
 
 /* INTRO */
 
 .intro {
-  text-align:center;
-  padding:45px 15px 25px;
+  text-align: center;
+  padding: 48px 15px 25px;
 }
 
 .intro h2 {
-  color:var(--gold);
-  font-size:30px;
-  margin-bottom:12px;
+  color: var(--gold);
+  font-size: 31px;
+  margin-bottom: 10px;
 }
 
 .intro p {
-  color:#ccc;
-  line-height:1.6;
+  color: var(--muted);
 }
 
-/* CATEGORY GRID */
+/* SEARCH */
+
+.search-area {
+  max-width: 1050px;
+  margin: 20px auto 35px;
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid #55451d;
+  border-radius: 9px;
+}
+
+.search-area h3 {
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.search-fields {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+}
+
+.search-fields input,
+.search-fields select {
+  width: 100%;
+  padding: 13px;
+  background: #080808;
+  color: white;
+  border: 1px solid #665522;
+  border-radius: 5px;
+  outline: none;
+  min-width: 0;
+}
+
+.search-fields input:focus,
+.search-fields select:focus {
+  border-color: var(--gold);
+}
+
+.search-fields select option {
+  background: #111;
+}
+
+.search-help {
+  text-align: center;
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+/* CATEGORIES */
 
 .categories {
-  padding:25px 5% 60px;
+  padding: 20px 5% 65px;
 }
 
 .category-grid {
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:22px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
 }
 
 .category {
-  display:block;
-  background:#151515;
-  border:1px solid #55451d;
-  border-bottom:3px solid var(--gold);
-  border-radius:8px;
-  overflow:hidden;
-  text-decoration:none;
-  color:white;
-  transition:transform .25s;
+  background: var(--panel);
+  border: 1px solid #55451d;
+  border-bottom: 3px solid var(--gold);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform .25s;
 }
 
 .category:hover {
-  transform:translateY(-5px);
+  transform: translateY(-5px);
 }
 
-.category img {
-  width:100%;
-  height:190px;
-  display:block;
-  object-fit:cover;
+.category-image {
+  width: 100%;
+  height: 210px;
+  display: block;
+  object-fit: cover;
+  background: #222;
 }
 
 .category-content {
-  padding:17px;
-  text-align:center;
+  padding: 18px;
 }
 
 .category h3 {
-  color:var(--gold);
-  font-size:18px;
-  margin-bottom:9px;
+  color: var(--gold);
+  font-size: 19px;
+  margin-bottom: 9px;
 }
 
 .category p {
-  color:#ccc;
-  font-size:13px;
-  line-height:1.6;
+  color: #ccc;
+  font-size: 13px;
+  margin-bottom: 12px;
 }
 
-/* AVIATION LAST */
-
-.aviation-heading {
-  text-align:center;
-  color:var(--gold);
-  font-size:29px;
-  margin:55px 0 20px;
+.item-list {
+  color: #ddd;
+  font-size: 12px;
+  line-height: 1.9;
 }
 
-.aviation-note {
-  text-align:center;
-  color:#ccc;
-  margin-bottom:25px;
+.category-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.category-link:hover {
+  color: white;
+}
+
+/* NO RESULTS */
+
+.no-results {
+  display: none;
+  text-align: center;
+  color: var(--gold);
+  padding: 35px 10px;
+}
+
+/* COUNTIES */
+
+.counties {
+  background: #121212;
+  border-top: 1px solid #55451d;
+  border-bottom: 1px solid #55451d;
+  padding: 45px 5%;
+  text-align: center;
+}
+
+.counties h2 {
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.counties p {
+  color: #ccc;
+  margin-bottom: 18px;
+}
+
+.county-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.county-list span {
+  padding: 7px 13px;
+  background: #202020;
+  border: 1px solid #55451d;
+  border-radius: 4px;
+  color: #eee;
+  font-size: 12px;
 }
 
 /* ADVERTISING */
 
 .advertise {
-  background:#151515;
-  border-top:1px solid var(--gold);
-  border-bottom:1px solid var(--gold);
-  padding:55px 20px;
-  text-align:center;
+  text-align: center;
+  padding: 60px 20px;
+  background: #151515;
+  border-bottom: 1px solid var(--gold);
 }
 
 .advertise h2 {
-  color:var(--gold);
-  margin-bottom:15px;
-  font-size:29px;
+  color: var(--gold);
+  font-size: 30px;
+  margin-bottom: 15px;
 }
 
 .advertise p {
-  max-width:650px;
-  margin:0 auto 22px;
-  color:#ddd;
-  line-height:1.8;
+  max-width: 720px;
+  margin: 0 auto 25px;
+  color: #ddd;
 }
 
-.advertise a {
-  display:inline-block;
-  padding:13px 28px;
-  background:var(--gold);
-  color:black;
-  text-decoration:none;
-  font-weight:bold;
-  border-radius:5px;
+/* VERIFICATION */
+
+.verification {
+  padding: 50px 6%;
+  text-align: center;
+}
+
+.verification h2 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.verification p {
+  max-width: 800px;
+  margin: auto;
+  color: #ccc;
 }
 
 /* CONTACT */
 
 .contact {
-  text-align:center;
-  padding:45px 20px;
+  text-align: center;
+  background: #111;
+  padding: 50px 20px;
 }
 
 .contact h2 {
-  color:var(--gold);
-  margin-bottom:15px;
+  color: var(--gold);
+  margin-bottom: 15px;
 }
 
 .contact p {
-  color:#ccc;
-  line-height:1.8;
+  color: #ccc;
+  line-height: 2;
 }
 
 /* FOOTER */
 
 footer {
-  background:#050505;
-  border-top:1px solid #55451d;
-  padding:25px 15px;
-  text-align:center;
-  color:#aaa;
-  font-size:13px;
-  line-height:1.9;
+  background: #050505;
+  border-top: 1px solid #55451d;
+  padding: 27px 15px;
+  text-align: center;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 2;
 }
 
-footer span { color:var(--gold); }
+footer span {
+  color: var(--gold);
+}
 
-/* RESPONSIVE */
+/* MOBILE */
 
-@media(max-width:900px) {
+@media(max-width: 900px) {
   .category-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .search-fields input {
+    grid-column: 1 / -1;
   }
 }
 
-@media(max-width:550px) {
+@media(max-width: 550px) {
   header {
-    justify-content:center;
-    gap:15px;
+    justify-content: center;
   }
 
   nav {
-    justify-content:center;
-    gap:15px;
+    justify-content: center;
+    gap: 14px;
   }
 
-  .hero { min-height:420px; }
+  .hero {
+    min-height: 420px;
+  }
 
-  .hero p { font-size:16px; }
+  .hero p {
+    font-size: 15px;
+  }
 
   .categories {
-    padding-left:4%;
-    padding-right:4%;
+    padding-left: 4%;
+    padding-right: 4%;
   }
 
-  .category-grid { gap:12px; }
+  .category-grid {
+    gap: 12px;
+  }
 
-  .category img { height:140px; }
+  .category-image {
+    height: 140px;
+  }
 
-  .category-content { padding:12px 7px; }
+  .category-content {
+    padding: 12px 9px;
+  }
 
-  .category h3 { font-size:15px; }
+  .category h3 {
+    font-size: 15px;
+  }
 
-  .category p { font-size:12px; }
+  .category p {
+    font-size: 12px;
+  }
+
+  .item-list {
+    font-size: 11px;
+  }
+
+  .search-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .search-fields input {
+    grid-column: auto;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">KENYA<span>RENTALS</span></div>
+<!-- HEADER -->
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#categories">Categories</a>
-    <a href="#advertise">Advertise</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+
+<a href="#home" class="logo">
+KENYA<span>RENTALS</span>
+</a>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#counties">Counties</a>
+<a href="#advertise">Advertise</a>
+<a href="#contact">Contact</a>
+</nav>
+
 </header>
 
 <!-- HERO -->
 
 <section class="hero" id="home">
-  <div class="hero-content">
-    <h1>Find It. Verify It. Rent It.</h1>
 
-    <p>
-      Your destination for properties, vehicles,
-      aviation, construction equipment and
-      professional services.
-    </p>
+<div class="hero-content">
 
-    <a href="#categories" class="hero-button">
-      Explore Categories
-    </a>
-  </div>
+<h1>Find It. Verify It. Rent It.</h1>
+
+<p>
+Kenya's rental marketplace for vehicles,
+properties, aviation, construction machinery,
+agriculture and professional services.
+</p>
+
+<a href="#categories" class="gold-button">
+Explore KenyaRentals
+</a>
+
+</div>
+
 </section>
+
+<!-- INTRO -->
 
 <section class="intro" id="categories">
-  <h2>Explore Our Categories</h2>
-  <p>Discover what you need, all in one place.</p>
+
+<h2>Explore Our Marketplace</h2>
+
+<p>
+Discover rental products and professional services
+from advertisers across Kenya.
+</p>
+
 </section>
+
+<!-- SEARCH -->
+
+<section class="search-area">
+
+<h3>Find What You Need</h3>
+
+<div class="search-fields">
+
+<input
+type="search"
+id="categorySearch"
+placeholder="Search cars, houses, tractors, artists..."
+aria-label="Search rental categories"
+>
+
+<select id="countySearch" aria-label="Select county">
+
+<option value="">All Counties</option>
+
+<option>Mombasa</option>
+<option>Kwale</option>
+<option>Kilifi</option>
+<option>Tana River</option>
+<option>Lamu</option>
+<option>Taita Taveta</option>
+<option>Garissa</option>
+<option>Wajir</option>
+<option>Mandera</option>
+<option>Marsabit</option>
+<option>Isiolo</option>
+<option>Meru</option>
+<option>Tharaka Nithi</option>
+<option>Embu</option>
+<option>Kitui</option>
+<option>Machakos</option>
+<option>Makueni</option>
+<option>Nyandarua</option>
+<option>Nyeri</option>
+<option>Kirinyaga</option>
+<option>Murang'a</option>
+<option>Kiambu</option>
+<option>Turkana</option>
+<option>West Pokot</option>
+<option>Samburu</option>
+<option>Trans Nzoia</option>
+<option>Uasin Gishu</option>
+<option>Elgeyo Marakwet</option>
+<option>Nandi</option>
+<option>Baringo</option>
+<option>Laikipia</option>
+<option>Nakuru</option>
+<option>Narok</option>
+<option>Kajiado</option>
+<option>Kericho</option>
+<option>Bomet</option>
+<option>Kakamega</option>
+<option>Vihiga</option>
+<option>Bungoma</option>
+<option>Busia</option>
+<option>Siaya</option>
+<option>Kisumu</option>
+<option>Homa Bay</option>
+<option>Migori</option>
+<option>Kisii</option>
+<option>Nyamira</option>
+<option>Nairobi</option>
+
+</select>
+
+<select id="categorySelect" aria-label="Choose category">
+
+<option value="">All Categories</option>
+<option value="transport">Transport</option>
+<option value="properties">Properties</option>
+<option value="accommodation">Accommodation</option>
+<option value="aviation">Aviation</option>
+<option value="construction">Construction</option>
+<option value="agriculture">Agriculture</option>
+<option value="cleaning">Cleaning</option>
+<option value="security">Security</option>
+<option value="tourism">Tourism</option>
+<option value="professional">Professional Services</option>
+<option value="personal">Personal Services</option>
+<option value="events">Events and Entertainment</option>
+
+</select>
+
+</div>
+
+<p class="search-help">
+Search by rental item, service or category.
+County selection is available for narrowing your search.
+</p>
+
+</section>
+
+<!-- MAIN CATEGORY GRID -->
 
 <section class="categories">
 
-<div class="category-grid">
+<div class="category-grid" id="categoryGrid">
 
-<!-- 1 CARS -->
+<!-- 1 TRANSPORT -->
 
-<a href="#contact" class="category">
+<article class="category"
+data-category="transport"
+data-search="cars prado land cruiser suvs buses matatus motorcycles lorries trucks exhausters water tankers borehole drilling vehicles transport">
+
 <img
-src="https://images.ctfassets.net/lmkdg513arga/2SYF5EkepsSx8L63nZmVU8/fd6bf7287db51ec341088c4b0f89bb93/City_Airport_June_22_025.JPG?fm=jpg&w=1229"
-alt="Cars parked on paved airport ground">
+class="category-image"
+src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900"
+alt="Luxury motor vehicle"
+loading="lazy"
+>
+
 <div class="category-content">
-<h3>1. Cars</h3>
-<p>Prado, Land Cruiser, luxury cars, SUVs and other vehicles.</p>
-</div>
-</a>
 
-<!-- 2 HOUSES -->
-
-<a href="#contact" class="category">
-<img
-src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800"
-alt="Modern luxury house">
-<div class="category-content">
-<h3>2. Houses</h3>
-<p>Modern houses, villas, mansions and family homes.</p>
-</div>
-</a>
-
-<!-- 3 APARTMENTS -->
-
-<a href="#contact" class="category">
-<img
-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
-alt="Modern apartment">
-<div class="category-content">
-<h3>3. Apartments</h3>
-<p>Furnished and unfurnished apartments.</p>
-</div>
-</a>
-
-<!-- 4 BNBS -->
-
-<a href="#contact" class="category">
-<img
-src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800"
-alt="Holiday accommodation">
-<div class="category-content">
-<h3>4. BnBs</h3>
-<p>Holiday homes, short stays and comfortable accommodation.</p>
-</div>
-</a>
-
-<!-- 5 HOTELS -->
-
-<a href="#contact" class="category">
-<img
-src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
-alt="Hotel">
-<div class="category-content">
-<h3>5. Hotels</h3>
-<p>Hotels, resorts and accommodation for different budgets.</p>
-</div>
-</a>
-
-<!-- 6 CLEANING -->
-
-<a href="#contact" class="category">
-<img
-src="https://saimahcleaning.com/assets/hero-cleaning-sKn8SL4R.jpg"
-alt="African male and female cleaners mopping office floors">
-<div class="category-content">
-<h3>6. Cleaning Services</h3>
-<p>Professional African gentlemen and ladies cleaning homes, offices and floors with mops.</p>
-</div>
-</a>
-
-<!-- 7 SECURITY -->
-
-<a href="#contact" class="category">
-<img
-src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800"
-alt="Security services">
-<div class="category-content">
-<h3>7. Security Services</h3>
-<p>Professional guards, security teams and protection services.</p>
-</div>
-</a>
-
-<!-- 8 TOUR GUIDES -->
-
-<a href="#contact" class="category">
-<img
-src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800"
-alt="African safari tour">
-<div class="category-content">
-<h3>8. Tour Guides</h3>
-<p>Experienced guides, safaris and travel experiences across Kenya.</p>
-</div>
-</a>
-
-<!-- 9 CONSTRUCTION EQUIPMENT -->
-
-<a href="#contact" class="category">
-<img
-src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"
-alt="Construction equipment and machinery">
-<div class="category-content">
-<h3>9. Construction Equipment</h3>
-<p>Cranes, excavators, tractors and heavy construction machinery.</p>
-</div>
-</a>
-
-<!-- 10 CONSTRUCTION EXPERTS -->
-
-<a href="#contact" class="category">
-<img
-src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800"
-alt="Construction and engineering project">
-<div class="category-content">
-<h3>10. Construction Experts</h3>
-<p>Engineers, architects and professional construction teams.</p>
-</div>
-</a>
-
-</div>
-
-<!-- AVIATION: FINAL TWO CATEGORIES -->
-
-<h2 class="aviation-heading">Aviation Rentals</h2>
-
-<p class="aviation-note">
-Aircraft and helicopter rental services
-</p>
-
-<div class="category-grid">
-
-<!-- 11 PRIVATE JETS -->
-
-<a href="#contact" class="category">
-<img
-src="https://www.flyvictor.com/_next/image/?q=75&url=https%3A%2F%2Fd37bgjny9g6ghe.cloudfront.net%2Faircraft-images%2Fn455wg%2FN455WG-EXT.jpg&w=3840"
-alt="Private jet parked on airport tarmac">
-<div class="category-content">
-<h3>11. Private Jets</h3>
-<p>Private jets, charter flights and aircraft services.</p>
-</div>
-</a>
-
-<!-- 12 SIMPLE HELICOPTERS -->
-
-<a href="#contact" class="category">
-<img
-src="https://www.planesales.com.au/Uploads/Listing/Normal/ID02919-10841-1-922-2005-Robinson-R22-Beta-II.jpg"
-alt="Simple two-seat utility helicopter parked on tarmac">
-<div class="category-content">
-<h3>12. Helicopters</h3>
-<p>Practical helicopters, affordable charter options and private transport.</p>
-</div>
-</a>
-
-</div>
-</section>
-
-<!-- ADVERTISE -->
-
-<section class="advertise" id="advertise">
-<h2>Advertise With KenyaRentals</h2>
+<h3>1. Transport & Vehicles</h3>
 
 <p>
-Are you an individual owner or registered company?
-List your property, vehicle, equipment or professional
-service and connect with customers looking for rentals.
+Personal, commercial and specialised transport rentals.
 </p>
 
-<a href="#contact">Advertise With Us</a>
-</section>
+<div class="item-list">
+Cars • Prado • Land Cruiser • SUVs • Luxury vehicles<br>
+Buses • Matatus • Motorcycles • Lorries • Trucks<br>
+Exhauster vehicles • Borehole drilling vehicles<br>
+Water tankers • Commercial transport
+</div>
 
-<!-- CONTACT -->
+<a class="category-link" href="#advertise">
+Explore Transport →
+</a>
 
-<section class="contact" id="contact">
-<h2>Contact KenyaRentals</h2>
+</div>
+</article>
+
+<!-- 2 PROPERTIES -->
+
+<article class="category"
+data-category="properties"
+data-search="houses homes villas mansions luxury houses family homes holiday houses residential properties real estate">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900"
+alt="Luxury residential property"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>2. Properties & Homes</h3>
+
 <p>
-Find It. Verify It. Rent It.
-<br>
-Connect with advertisers directly.
-<br>
-Your next rental starts here.
+Residential properties for long-term and short-term rentals.
 </p>
+
+<div class="item-list">
+Modern houses • Villas • Mansions<br>
+Family homes • Luxury homes • Holiday houses<br>
+Residential properties • Other rental properties
+</div>
+
+<a class="category-link" href="#advertise">
+Explore Properties →
+</a>
+
+</div>
+</article>
+
+<!-- 3 ACCOMMODATION -->
+
+<article class="category"
+data-category="accommodation"
+data-search="apartments furnished apartments bnb airbnb hotels resorts lodges holiday accommodation guest houses">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900"
+alt="Comfortable holiday accommodation"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>3. Apartments, BnBs & Hotels</h3>
+
+<p>
+Accommodation for holidays, business and everyday living.
+</p>
+
+<div class="item-list">
+Furnished apartments • Unfurnished apartments<br>
+BnBs • Holiday homes • Hotels • Resorts<br>
+Lodges • Guest houses • Short stays
+</div>
+
+<a class="category-link" href="#advertise">
+Explore Accommodation →
+</a>
+
+</div>
+</article>
+
+<!-- 4 AVIATION -->
+
+<article class="category"
+data-category="aviation"
+data-search="aviation aircraft private jets helicopters charter flights planes aircraft rentals">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900"
+alt="Aircraft in flight"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>4. Aviation Rentals</h3>
+
+<p>
+Private aircraft and helicopter rental services.
+</p>
+
+<div class="item-list">
+Private jets • Executive aircraft<br>
+Helicopters • Charter flights<br>
+Private aviation • Aircraft services
+</div>
+
+<a class="category-link" href="#advertise">
+Explore Aviation →
+</a>
+
+</div>
+</article>
+
+<!-- 5 CONSTRUCTION EQUIPMENT -->
+
+<article class="category"
+data-category="construction"
+data-search="construction equipment cranes excavators bulldozers concrete mixers loaders rollers graders forklifts scaffolding machinery">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900"
+alt="Construction machinery at work"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>5. Construction Equipment</h3>
+
+<p>
+Heavy machinery and equipment available for hire.
+</p>
+
+<div class="item-list">
+Cranes • Excavators • Bulldozers<br>
+Loaders • Graders • Rollers • Forklifts<br>
+Concrete mixers • Scaffolding • Other machinery
+</div>
+
+<a class="category-link" href="#advertise">
+Explore Equipment →
+</a>
+
+</div>
+</article>
+
+<!-- 6 CONSTRUCTION EXPERTS -->
+
+<article class="category"
+data-category="construction"
+data-search="engineers architects construction workers builders contractors masons quantity surveyors technicians construction experts">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900"
+alt="Modern construction and engineering project"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>6. Construction Professionals</h3>
+
+<p>
+Connect with construction and engineering professionals.
+</p>
+
+<div class="item-list">
+Engineers • Architects • Builders<br>
+Contractors • Masons • Surveyors<br>
+Construction technicians • Project teams
+</div>
+
+<a class="category-link" href="#advertise">
+Find Professionals →
+</a>
+
+</div>
+</article>
+
+<!-- 7 AGRICULTURE -->
+
+<article class="category"
+data-category="agriculture"
+data-search="agriculture farming tractors harvesters farm equipment ploughing irrigation agricultural machinery farm services">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900"
+alt="Agricultural farmland"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>7. Agriculture & Farming</h3>
+
+<p>
+Agricultural machinery, farm equipment and related services.
+</p>
+
+<div class="item-list">
+Tractors • Harvesters • Ploughing equipment<br>
+Farm machinery • Irrigation equipment<br>
+Planting • Harvesting • Agricultural services
+</div>
+
+<a class="category-link" href="#advertise">
+Explore Agriculture →
+</a>
+
+</div>
+</article>
+
+<!-- 8 CLEANING -->
+
+<article class="category"
+data-category="cleaning"
+data-search="cleaning cleaners domestic cleaning office cleaning commercial cleaning deep cleaning floor cleaning washing">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900"
+alt="Professional cleaning service"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>8. Cleaning Services</h3>
+
+<p>
+Professional cleaning teams for homes and businesses.
+</p>
+
+<div class="item-list">
+Home cleaners • Office cleaners<br>
+African cleaning teams • Floor cleaning<br>
+Mopping • Deep cleaning • Commercial cleaning
+</div>
+
+<a class="category-link" href="#advertise">
+Find Cleaning Services →
+</a>
+
+</div>
+</article>
+
+<!-- 9 PRIVATE SECURITY -->
+
+<article class="category"
+data-category="security"
+data-search="private security guards bodyguards executive protection event security residential security corporate security patrol k9 dogs">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=900"
+alt="Private security personnel"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>9. Private Security Services</h3>
+
+<p>
+Private security and professional protection services.
+</p>
+
+<div class="item-list">
+Security guards • Bodyguards<br>
+Executive protection • Event security<br>
+Residential security • Corporate security<br>
+Patrol services • K9 security teams
+</div>
+
+<a class="category-link" href="#advertise">
+Explore Security →
+</a>
+
+</div>
+</article>
+
+<!-- 10 TOURISM -->
+
+<article class="category"
+data-category="tourism"
+data-search="tour guides safari guides tourism travel guides excursions sightseeing adventure tourism tour operators">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=900"
+alt="African wildlife safari"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>10. Tourism & Tour Guides</h3>
+
+<p>
+Discover Kenya through professional tour guides.
+</p>
+
+<div class="item-list">
+Tour guides • Safari guides • Travel guides<br>
+County experiences • Excursions<br>
+Sightseeing • Adventure tourism • Tour operators
+</div>
+
+<a class="category-link" href="#advertise">
+Explore Tourism →
+</a>
+
+</div>
+</article>
+
+<!-- 11 PROFESSIONAL SERVICES -->
+
+<article class="category"
+data-category="professional"
+data-search="graphic designers designers digital services consultants photographers it technicians accountants business consultants professionals">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900"
+alt="Professional office environment"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>11. Professional & Technical Services</h3>
+
+<p>
+Find skilled professionals for your business and projects.
+</p>
+
+<div class="item-list">
+Graphic designers • IT technicians<br>
+Accountants • Business consultants<br>
+Photographers • Digital professionals<br>
+Technical support • Other specialists
+</div>
+
+<a class="category-link" href="#advertise">
+Find Professionals →
+</a>
+
+</div>
+</article>
+
+<!-- 12 PERSONAL AND CREATIVE SERVICES -->
+
+<article class="category"
+data-category="personal"
+data-search="artists musicians singers entertainers event organizers events plumbers electricians caretakers private nurses private teachers home support services">
+
+<img
+class="category-image"
+src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900"
+alt="Live entertainment and event"
+loading="lazy"
+>
+
+<div class="category-content">
+
+<h3>12. Personal, Creative & Home Services</h3>
+
+<p>
+Connect with creative talent and skilled service providers.
+</p>
+
+<div class="item-list">
+Artists • Musicians • Singers • Entertainers<br>
+Event organisers • Plumbers • Electricians<br>
+Caretakers • Private nurses • Private teachers<br>
+Home support • Other personal services
+</div>
+
+<a class="category-link" href="#advertise">
+Explore Services →
+</a>
+
+</div>
+</article>
+
+</div>
+
+<p class="no-results" id="noResults">
+No matching categories found. Try another search.
+</p>
+
 </section>
 
-<footer>
-<p>© 2026 <span>KenyaRentals</span>. All Rights Reserved.</p>
-<p>Find It. Verify It. Rent It.</p>
-<p>Founded by Stephen Gachiri Maina.</p>
-</footer>
+<!-- COUNTIES -->
 
-</body>
-</html>
+<section class="counties" id="counties">
+
+<h2>Across All 47 Counties</h2>
+
+<p>
+KenyaRentals aims to connect advertisers and customers
+throughout Kenya.
+</p>
+
+<div class="county-list">
+
+<span>Mombasa</span>
+<span>Kwale</span>
+<span>Kilifi</span>
+<span>Tana River</span>
+<span>Lamu</span>
+<span>Taita Taveta</span>
+<span>Garissa</span>
+<span>Wajir</span>
+<span>Mandera</span>
+<span>Marsabit</span>
+<span>Isiolo</span>
+<span>Meru</span>
+<span>Tharaka Nithi</span>
+<span>Embu</span>
+<span>Kitui</span>
+<span>Machakos</span>
+<span>Makueni</span>
+<span>Nyandarua</span>
+<span>Nyeri</span>
+<span>Kirinyaga</span>
+<span>Murang'a</span>
+<span>Kiambu</span>
+<span>Turkana</span>
+<span>West Pokot</span>
+<span>Samburu</span>
+<span>Trans Nzoia</span>
+<spa
